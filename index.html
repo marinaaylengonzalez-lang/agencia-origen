@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Agencia ORIGEN — Marketing, Fotografía &amp; Video</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0B0B0B;
+  --s1:#111;
+  --s2:#161616;
+  --s3:#1C1C1C;
+  --gold:#C4973F;
+  --gold2:#D9C7A7;
+  --text:#EDEAE4;
+  --muted:#666;
+  --dim:#333;
+  --bd:rgba(196,151,63,0.13);
+  --bd2:rgba(255,255,255,0.06);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-weight:300;font-size:14px;line-height:1.6;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:.9rem 2.5rem;background:rgba(11,11,11,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;}
+.logo span{color:var(--text);opacity:.4;font-weight:300;}
+.nav-r{display:flex;align-items:center;gap:2.5rem;}
+.nav-r a{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);transition:color .2s;cursor:pointer;text-decoration:none;}
+.nav-r a:hover{color:var(--gold);}
+.nav-cta{background:transparent;color:var(--gold);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding:.45rem 1.1rem;border:1px solid rgba(196,151,63,0.4);cursor:pointer;border-radius:2px;transition:all .2s;}
+.nav-cta:hover{background:var(--gold);color:#0B0B0B;}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-rows:1fr auto;padding-top:58px;}
+.hero-main{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 58px);}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:4rem 3rem 3rem 2.5rem;border-right:1px solid var(--bd2);}
+.h-tag{display:inline-flex;align-items:center;gap:.6rem;font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;}
+.h-tag::before{content:'';width:24px;height:1px;background:var(--gold);}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,6vw,5.5rem);font-weight:300;line-height:.95;letter-spacing:-.01em;margin-bottom:1.5rem;color:var(--text);}
+.h-title strong{font-weight:600;display:block;}
+.h-title em{font-style:italic;color:var(--gold);}
+.h-sub{font-size:.88rem;color:var(--muted);max-width:380px;line-height:1.85;margin-bottom:2.5rem;}
+.h-actions{display:flex;gap:.75rem;}
+.btn-main{background:var(--gold);color:#0B0B0B;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.75rem 1.75rem;border:none;cursor:pointer;border-radius:2px;transition:background .2s;}
+.btn-main:hover{background:var(--gold2);}
+.btn-out{background:transparent;color:var(--text);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:.75rem 1.75rem;border:1px solid var(--bd2);cursor:pointer;border-radius:2px;transition:all .2s;}
+.btn-out:hover{border-color:var(--gold);color:var(--gold);}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;}
+.hero-tile{border-left:1px solid var(--bd2);border-bottom:1px solid var(--bd2);display:flex;flex-direction:column;justify-content:flex-end;padding:1.25rem;position:relative;overflow:hidden;background:var(--s1);}
+.hero-tile:nth-child(3),.hero-tile:nth-child(4){border-bottom:none;}
+.tile-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.04;user-select:none;}
+.tile-label{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:.2rem;position:relative;z-index:1;}
+.tile-name{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--text);position:relative;z-index:1;}
+.tile-accent{position:absolute;top:1rem;right:1rem;width:6px;height:6px;border-radius:50%;background:var(--gold);z-index:1;}
+.hero-tile.active{background:var(--s2);}
+.hero-tile.active .tile-name{color:var(--gold);}
+
+/* STRIP */
+.strip{background:var(--s2);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd);padding:.65rem 2.5rem;display:flex;align-items:center;gap:2rem;overflow:hidden;}
+.s-item{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--dim);white-space:nowrap;}
+.s-dot{color:var(--gold);opacity:.5;font-size:.5rem;}
+
+/* WRAP */
+.wrap{max-width:1100px;margin:0 auto;padding:0 2.5rem;}
+
+/* SEC */
+.sec-intro{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:3rem;}
+.sec-tag{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem;}
+.sec-tag::before{content:'';width:16px;height:1px;background:var(--gold);}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.05;}
+.sec-h strong{font-weight:600;}
+.sec-p{font-size:.83rem;color:var(--muted);line-height:1.85;align-self:end;}
+
+/* SERVICIOS */
+.srv-layout{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:1px;background:var(--bd2);border:1px solid var(--bd2);border-radius:8px;overflow:hidden;}
+.srv-card{background:var(--s1);padding:2rem 1.75rem;transition:background .25s;}
+.srv-card:hover{background:var(--s2);}
+.srv-card.wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+.srv-ico{font-size:.9rem;letter-spacing:.15em;color:var(--gold);opacity:.7;margin-bottom:1rem;}
+.srv-n{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;margin-bottom:.5rem;line-height:1.1;}
+.srv-t{font-size:.77rem;color:var(--muted);line-height:1.75;}
+.srv-tags{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:1rem;}
+.stag{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--bd);padding:.18rem .5rem;border-radius:2px;}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd2);border:1px solid var(--bd2);border-radius:8px;overflow:hidden;margin:5rem 0 0;}
+.stat{background:var(--s2);padding:2rem 1.5rem;text-align:center;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1;}
+.stat-n span{font-size:1.2rem;}
+.stat-l{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;}
+
+/* PAQUETES */
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd2);border:1px solid var(--bd2);border-radius:8px;overflow:hidden;margin-top:3rem;}
+.pkg{background:var(--s1);padding:2rem 1.75rem;position:relative;display:flex;flex-direction:column;}
+.pkg.feat{background:var(--s2);}
+.pkg-badge{display:inline-block;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,151,63,0.3);padding:.2rem .65rem;border-radius:2px;margin-bottom:1.25rem;}
+.pkg-n{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:600;margin-bottom:.2rem;}
+.pkg-sub{font-size:.72rem;color:var(--muted);margin-bottom:1.5rem;}
+.pkg-div{height:1px;background:var(--bd2);margin-bottom:1.5rem;}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;flex:1;}
+.pkg-list li{font-size:.78rem;color:var(--muted);display:grid;grid-template-columns:1rem 1fr;gap:.5rem;align-items:start;}
+.pkg-list li::before{content:'·';color:var(--gold);font-size:1.1rem;line-height:1.3;}
+.pkg-btn{margin-top:1.75rem;width:100%;background:transparent;color:var(--muted);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem;border:1px solid var(--dim);cursor:pointer;border-radius:2px;transition:all .2s;}
+.pkg-btn:hover,.pkg.feat .pkg-btn{background:var(--gold);color:#0B0B0B;border-color:var(--gold);}
+
+/* PROCESO */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--bd2);border:1px solid var(--bd2);border-radius:8px;overflow:hidden;margin-top:3rem;}
+.proc{background:var(--s1);padding:1.75rem 1.5rem;}
+.proc-n{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--dim);line-height:1;margin-bottom:1rem;}
+.proc-name{font-size:.8rem;font-weight:500;color:var(--text);margin-bottom:.4rem;letter-spacing:.03em;}
+.proc-t{font-size:.75rem;color:var(--muted);line-height:1.7;}
+
+/* CTA */
+.cta-sec{padding:5rem 0;}
+.cta-box{background:var(--s2);border:1px solid var(--bd);border-radius:8px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem;padding:3rem 2.5rem;}
+.cta-t{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:300;line-height:1.1;margin-bottom:.5rem;}
+.cta-t strong{font-weight:600;}
+.cta-t em{font-style:italic;color:var(--gold);}
+.cta-sub{font-size:.78rem;color:var(--muted);}
+.cta-r{display:flex;flex-direction:column;align-items:flex-end;gap:.75rem;flex-shrink:0;}
+.cta-btn{background:var(--gold);color:#0B0B0B;font-size:.72rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:.8rem 1.8rem;border:none;cursor:pointer;border-radius:2px;white-space:nowrap;transition:background .2s;}
+.cta-btn:hover{background:var(--gold2);}
+.cta-note{font-size:.65rem;color:var(--dim);}
+
+/* FOOTER */
+footer{border-top:1px solid var(--bd2);padding:1.5rem 2.5rem;display:flex;justify-content:space-between;align-items:center;}
+.foot-l{font-size:.65rem;color:var(--muted);}
+.foot-l strong{color:var(--gold);letter-spacing:.12em;}
+.foot-links{display:flex;gap:1.75rem;}
+.foot-links a{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);cursor:pointer;transition:color .2s;text-decoration:none;}
+.foot-links a:hover{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">ORIGEN<span> ·</span></div>
+  <div class="nav-r">
+    <a href="#servicios">Servicios</a>
+    <a href="#paquetes">Paquetes</a>
+    <a href="#proceso">Proceso</a>
+    <button class="nav-cta" onclick="window.open('https://wa.me/543757000000','_blank')">Contacto</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-main">
+    <div class="hero-left">
+      <div class="h-tag">Agencia Creativa · Puerto Iguazú</div>
+      <h1 class="h-title">
+        Contenido<br/>
+        que <em>conecta</em><br/>
+        <strong>y convierte.</strong>
+      </h1>
+      <p class="h-sub">Fotografía, video, diseño y gestión de redes sociales para negocios locales que quieren destacar.</p>
+      <div class="h-actions">
+        <button class="btn-main" onclick="document.getElementById('servicios').scrollIntoView({behavior:'smooth'})">Ver servicios</button>
+        <button class="btn-out" onclick="window.open('https://wa.me/543757000000','_blank')">Consultá gratis →</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-tile active">
+        <div class="tile-bg">◎</div>
+        <div class="tile-accent"></div>
+        <div class="tile-label">Especialidad</div>
+        <div class="tile-name">Fotografía</div>
+      </div>
+      <div class="hero-tile">
+        <div class="tile-bg">▶</div>
+        <div class="tile-label">Producción</div>
+        <div class="tile-name">Video & Reels</div>
+      </div>
+      <div class="hero-tile">
+        <div class="tile-bg">◈</div>
+        <div class="tile-label">Gestión</div>
+        <div class="tile-name">Redes Sociales</div>
+      </div>
+      <div class="hero-tile">
+        <div class="tile-bg">◇</div>
+        <div class="tile-label">Estrategia</div>
+        <div class="tile-name">Marketing Digital</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="strip">
+  <span class="s-item">Marketing Digital</span><span class="s-dot">◆</span>
+  <span class="s-item">Fotografía Profesional</span><span class="s-dot">◆</span>
+  <span class="s-item">Producción de Video</span><span class="s-dot">◆</span>
+  <span class="s-item">Community Management</span><span class="s-dot">◆</span>
+  <span class="s-item">Branding & Identidad</span><span class="s-dot">◆</span>
+  <span class="s-item">Meta Ads</span><span class="s-dot">◆</span>
+  <span class="s-item">Diseño Web</span>
+</div>
+
+<div id="servicios" style="padding:5rem 0 0;">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div>
+        <div class="sec-tag">Servicios</div>
+        <h2 class="sec-h">Todo lo que tu<br/><strong>marca necesita.</strong></h2>
+      </div>
+      <p class="sec-p">Desde la primera foto hasta la gestión diaria de tus redes. Un solo equipo, una sola visión para toda tu comunicación.</p>
+    </div>
+    <div class="srv-layout">
+      <div class="srv-card wide">
+        <div>
+          <div class="srv-ico">01 — FOTOGRAFÍA</div>
+          <div class="srv-n">Fotografía Profesional</div>
+          <p class="srv-t">Sesiones de producto, ambiente y branding para gastronomía, comercios y empresas. Imágenes con identidad propia que generan confianza y venden.</p>
+        </div>
+        <div>
+          <div class="srv-tags">
+            <span class="stag">Gastronomía</span>
+            <span class="stag">Producto</span>
+            <span class="stag">Branding</span>
+            <span class="stag">Eventos</span>
+            <span class="stag">Retrato</span>
+          </div>
+        </div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">02 — VIDEO</div>
+        <div class="srv-n">Producción de Video</div>
+        <p class="srv-t">Reels, spots publicitarios y videos institucionales con edición profesional. Contenido que para el scroll.</p>
+        <div class="srv-tags"><span class="stag">Reels</span><span class="stag">Spots</span><span class="stag">Institucional</span></div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">03 — REDES</div>
+        <div class="srv-n">Community Management</div>
+        <p class="srv-t">Gestión completa de Instagram y Facebook: contenido, calendario editorial, interacción y métricas.</p>
+        <div class="srv-tags"><span class="stag">Instagram</span><span class="stag">Facebook</span><span class="stag">Métricas</span></div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">04 — MARCA</div>
+        <div class="srv-n">Identidad de Marca</div>
+        <p class="srv-t">Logo, paleta, tipografía y manual de marca. La base visual para que tu negocio comunique coherencia.</p>
+        <div class="srv-tags"><span class="stag">Logo</span><span class="stag">Manual</span></div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">05 — ADS</div>
+        <div class="srv-n">Publicidad en Meta</div>
+        <p class="srv-t">Campañas con segmentación local en Iguazú y la región. Resultados medibles desde el primer mes.</p>
+        <div class="srv-tags"><span class="stag">Meta Ads</span><span class="stag">Local</span></div>
+      </div>
+      <div class="srv-card">
+        <div class="srv-ico">06 — WEB</div>
+        <div class="srv-n">Páginas Web</div>
+        <p class="srv-t">Landing pages y sitios modernos, rápidos y orientados a convertir visitantes en clientes reales.</p>
+        <div class="srv-tags"><span class="stag">Landing</span><span class="stag">WhatsApp</span></div>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-n">+80</div><div class="stat-l">Clientes locales</div></div>
+      <div class="stat"><div class="stat-n">3<span> años</span></div><div class="stat-l">En el mercado</div></div>
+      <div class="stat"><div class="stat-n">+500</div><div class="stat-l">Sesiones realizadas</div></div>
+      <div class="stat"><div class="stat-n">24<span>hs</span></div><div class="stat-l">Tiempo de respuesta</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="paquetes" style="padding:5rem 0 0;">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div>
+        <div class="sec-tag">Paquetes</div>
+        <h2 class="sec-h">Elegí el plan<br/><strong>que mejor se ajusta.</strong></h2>
+      </div>
+      <p class="sec-p">Todos los paquetes incluyen reporte mensual y comunicación directa con nuestro equipo sin intermediarios.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg">
+        <div class="pkg-badge">Presencia</div>
+        <div class="pkg-n">Starter</div>
+        <div class="pkg-sub">Para negocios que están arrancando en redes</div>
+        <div class="pkg-div"></div>
+        <ul class="pkg-list">
+          <li>12 publicaciones mensuales</li>
+          <li>Diseño gráfico incluido</li>
+          <li>Gestión de comentarios</li>
+          <li>Reporte mensual básico</li>
+          <li>1 sesión fotográfica trimestral</li>
+        </ul>
+        <button class="pkg-btn" onclick="window.open('https://wa.me/543757000000','_blank')">Consultar precio</button>
+      </div>
+      <div class="pkg feat">
+        <div class="pkg-badge">★ Más elegido</div>
+        <div class="pkg-n">Crecimiento</div>
+        <div class="pkg-sub">Para negocios que quieren escalar en digital</div>
+        <div class="pkg-div"></div>
+        <ul class="pkg-list">
+          <li>20 publicaciones mensuales</li>
+          <li>Sesión fotográfica mensual</li>
+          <li>2 Reels producidos y editados</li>
+          <li>Gestión completa de redes</li>
+          <li>Campañas Meta Ads incluidas</li>
+          <li>Reporte detallado con métricas</li>
+        </ul>
+        <button class="pkg-btn" onclick="window.open('https://wa.me/543757000000','_blank')">Consultar precio</button>
+      </div>
+      <div class="pkg">
+        <div class="pkg-badge">Full</div>
+        <div class="pkg-n">Marketing 360°</div>
+        <div class="pkg-sub">Para marcas que quieren presencia total</div>
+        <div class="pkg-div"></div>
+        <ul class="pkg-list">
+          <li>Publicaciones ilimitadas</li>
+          <li>Foto + video mensual completo</li>
+          <li>Meta Ads gestionado y optimizado</li>
+          <li>Landing page incluida</li>
+          <li>WhatsApp Bot básico</li>
+          <li>Identidad de marca completa</li>
+          <li>Estrategia y consultoría mensual</li>
+        </ul>
+        <button class="pkg-btn" onclick="window.open('https://wa.me/543757000000','_blank')">Consultar precio</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="proceso" style="padding:5rem 0 0;">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div>
+        <div class="sec-tag">Proceso</div>
+        <h2 class="sec-h">Simple, claro<br/><strong>y sin vueltas.</strong></h2>
+      </div>
+      <p class="sec-p">Trabajamos con un proceso probado que garantiza resultados predecibles desde el primer mes.</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc">
+        <div class="proc-n">01</div>
+        <div class="proc-name">Diagnóstico gratuito</div>
+        <p class="proc-t">Analizamos tu negocio, competencia local y presencia digital. Sin costo ni compromiso.</p>
+      </div>
+      <div class="proc">
+        <div class="proc-n">02</div>
+        <div class="proc-name">Propuesta a medida</div>
+        <p class="proc-t">Diseñamos un plan específico para tus objetivos y el mercado de Iguazú.</p>
+      </div>
+      <div class="proc">
+        <div class="proc-n">03</div>
+        <div class="proc-name">Ejecución total</div>
+        <p class="proc-t">Nos hacemos cargo de todo. Vos te enfocás en tu negocio, nosotros en tu marca.</p>
+      </div>
+      <div class="proc">
+        <div class="proc-n">04</div>
+        <div class="proc-name">Resultados reales</div>
+        <p class="proc-t">Cada mes un informe con métricas claras, lo que funcionó y los próximos pasos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cta-sec">
+    <div class="cta-box">
+      <div>
+        <h2 class="cta-t">¿Listo para hacer<br/><strong>crecer tu <em>marca?</em></strong></h2>
+        <p class="cta-sub">Primera consulta sin costo. Respondemos en menos de 24 horas.</p>
+      </div>
+      <div class="cta-r">
+        <button class="cta-btn" onclick="window.open('https://wa.me/543757000000','_blank')">Escribinos por WhatsApp</button>
+        <span class="cta-note">agenciaorigen.com.ar</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="foot-l"><strong>ORIGEN</strong> · Agencia Creativa · Puerto Iguazú, Misiones · Argentina</div>
+  <div class="foot-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#paquetes">Paquetes</a>
+    <a href="#proceso">Proceso</a>
+    <a href="https://wa.me/543757000000" target="_blank">Contacto</a>
+  </div>
+</footer>
+
+</body>
+</html>
